@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    var Support = sequelize.define('Support', {
+    var Questions = sequelize.define('Questions', {
       id: {
         type: DataTypes.INTEGER,
         unique: true,
@@ -10,6 +10,6 @@ module.exports = function (sequelize, DataTypes) {
       email: DataTypes.STRING,
       message: DataTypes.TEXT
     })
-    return Support
+    return Questions
   }
   

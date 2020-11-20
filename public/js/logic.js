@@ -1,17 +1,10 @@
-$(".support-form").on("submit", function (event) {
-    event.preventDefault();
+// $(".support-form").on("submit", function (event) {
+//     event.preventDefault();
 
-    let newQuestion = {
-        name: $("#support-name").val().trim(),
-        email: $("#support-name").val().trim(),
-        message: $("#support-name").val().trim()
-    };
+    
+//         let name = $("#support-name").val().trim()
+//         let email = $("#support-name").val().trim()
+//         let message = $("#support-name").val().trim()
 
-    $.ajax({
-        url: "/api/support",
-        type: "POST",
-        data: newQuestion
-    }).then((res)=>{
-        location.reload()
-    })
-})
+//     $.post('/api/support', {name, email, message})
+// })
