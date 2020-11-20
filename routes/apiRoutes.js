@@ -8,7 +8,12 @@ module.exports = function(app) {
       })
 
     app.post('/api/support', function(req, res) {
-        db.Questions.create(req.body).then((newQuestion) => {
+        console.log(req.body)
+        db.Questions.create({
+          name: req.body.name,
+          email: req.body.email,
+          message: req.body.message
+        }).then((newQuestion) => {
             res.json(newQuestion)
         })
     })

@@ -84,30 +84,39 @@
 
 					<h3>Have Questions?</h3>
 
-					<form action="/api/support" method="post" class="support-form">
+					<form id="support-form">
 
 						<div class="field half first">
 							<label for="name">Name</label>
+							<div class="alert alert-light" id="name-alert" role="alert">
+  								Please fill in a name.
+							</div>
 							<input id="support-name" name="name" id="name" type="text" placeholder="Name">
 						</div>
 						<div class="field half">
 							<label for="email">Email</label>
+							<div class="alert alert-light" id="email-alert" role="alert">
+  								Please fill in an email.
+							</div>
 							<input id="support-email" name="email" id="email" type="email" placeholder="Email">
 						</div>
 						<div class="field">
 							<label for="message">Message</label>
-							<textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
+							<div class="alert alert-light" id="message-alert" role="alert">
+  								Please fill in a message.
+							</div>
+							<textarea name="message" id="support-message" rows="6" placeholder="Message"></textarea>
 						</div>
 						<ul class="actions">
-							<li><input id="support-message" value="Send Message" class="button alt" type="submit"></li>
+							<button value="Send Message" id="support-submit" class="button alt" type="submit">Submit</button>
 						</ul>
 					</form>
 
 				</div>
 			</footer>
 
-		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			{{!-- <script src="assets/js/main.js"></script> --}}
+
