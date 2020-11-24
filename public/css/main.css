@@ -3159,3 +3159,11 @@
 
 		}
 
+		html {
+			scroll-behavior: smooth;
+		  }
+		
+#section-3 {
+	padding-top: 20px;
+}
+
