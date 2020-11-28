@@ -37,6 +37,4 @@ $("#support-form").on("submit", function handleFormSubmit(event) {
     }
 
 })
-
 })
-
