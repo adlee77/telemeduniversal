@@ -37,4 +37,31 @@ $("#support-form").on("submit", function handleFormSubmit(event) {
     }
 
 })
+
+var monthPrice = $('#monthly-plan');
+var quarterPrice = $('#quarterly-plan');
+
+
+$('#plan-btn').on('click', function(){
+    if (monthPrice.is(':checked') && quarterPrice.is(':checked')) {
+        $('table').append('<p style="color: red;" id="options">Please only select one option above.</p>');
+        $('#options').fadeOut(5000, function(){
+            $('#options').remove();
+        })
+    } else if (monthPrice.is(':checked')){
+        sessionStorage.clear();
+        sessionStorage.setItem('plan', 'month');
+        window.location = '/purchase-confirm';
+    } else if (quarterPrice.is(':checked')){
+        sessionStorage.clear();
+        sessionStorage.setItem('plan', 'quarter');
+        window.location = '/purchase-confirm';
+    } else {
+        $('table').append('<p style="color: red;" id="options">Please select a plan.</p>');
+        $('#options').fadeOut(5000, function(){
+            $('#options').remove();
+        })
+    }
+})
+
 })

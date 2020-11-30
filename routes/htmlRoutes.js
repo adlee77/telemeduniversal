@@ -10,6 +10,12 @@ module.exports = function(app) {
     })
 
     app.get('/purchase-confirm', function(req, res) {
+        console.log('test')
         res.render('purchase-confirmation')
+    })
+
+    app.post('/purchase-confirm', function(req, res) {
+        console.log('test')
+        res.render('purchase-confirmation', req.body)
     })
 }
