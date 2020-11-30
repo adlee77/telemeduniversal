@@ -14,6 +14,14 @@ module.exports = function(app) {
         res.render('purchase-confirmation')
     })
 
+    app.get('/privacy', function(req, res) {
+        res.render('privacy')
+    })
+
+    app.get('/refund-policy', function(req, res) {
+        res.render('refund-policy')
+    })
+
     app.post('/purchase-confirm', function(req, res) {
         console.log('test')
         res.render('purchase-confirmation', req.body)
