@@ -20,7 +20,7 @@
 <div class="inner">
     <div class="row">
         <div class="col">
-            <a href="/purchase">Back to Select Plan</a>
+            <a href="/purchase"><button>Back to Select Plan</button></a>
         </div>
     </div>
     <br>
@@ -50,6 +50,26 @@
     </div>
 </div>
 <br>
+<div class="inner">
+<table>
+            <tr class="monthly-plan selected-plan">
+              <td id="variablePlan"></td>
+              <td class="text-right" align="right">
+                <span id="variablePrice" class="custom-price"></span>
+              </td>
+            </tr>
+            <tr class="quarterly-plan">
+                <td>One-Time Non-Refundable Enrollment Fee</td>
+            <td class="text-right" align="right">
+                <span class="custom-price">$20.00</span>
+            </td>
+            </tr>
+            <tr>
+                <td><strong>Total</strong></td>
+                <td id="variableTotal" class="text-right kcartGrandTotal" align="right"></td>
+            </tr>                
+</table>
+</div>
 <div class="inner">
     <div class="row">
         <div class="col text-center">
@@ -106,6 +126,51 @@
             </div>
         </div>
     </form>
+    <div class="row">
+        <div class="col text-center">
+            <h3>Billing Address/Enrollment Form</h3>
+        </div>
+    </div>
+    <form id="purchase-form">
+        <div class="inner">
+            <div class="row">
+                <div class="col-6">
+                    First Name
+                </div>
+                <div class="col-6">
+                    Last Name
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <input id="enrollFirstName" name="enrollFirstName" type="text" placeholder="First Name">
+                </div>
+                <div class="col-6">
+                    <input id="enrollLastName" name="enrollLastName" type="text" placeholder="Last Name">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    Card Holder's Name
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input id="cardName" name="cardName" type="text" placeholder="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    Valid Card Number
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input id="cardNumber" name="cardNumber" type="text" placeholder="">
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
 
 <footer>
@@ -113,7 +178,17 @@
 </footer>
 
 
-
+<script>
+    if (sessionStorage.getItem('plan') == 'month') {
+        $('#variablePlan').html("MONTHLY PLAN"); 
+        $('#variablePrice').html("$49.00"); 
+        $('#variableTotal').html("$69.00"); 
+    } else {
+        $('#variablePlan').html("BONUS: GET ONE-MONTH FREE EACH QUARTER"); 
+        $('#variablePrice').html("$98.00"); 
+        $('#variableTotal').html("$118.00"); 
+    }
+</script>
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/skel.min.js"></script>
 <script src="assets/js/util.js"></script>
