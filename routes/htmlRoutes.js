@@ -22,6 +22,10 @@ module.exports = function(app) {
         res.render('refund-policy')
     })
 
+    app.get('/terms-conditions', function(req, res) {
+        res.render('terms-conditions')
+    })
+
     app.post('/purchase-confirm', function(req, res) {
         console.log('test')
         res.render('purchase-confirmation', req.body)
