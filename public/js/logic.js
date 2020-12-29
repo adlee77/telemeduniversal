@@ -1,6 +1,8 @@
 $(document).ready(function() {
 
 $('.alert').hide();
+$('.step-two').hide();
+$('.step-three').hide();
 
 $("#support-form").on("submit", function handleFormSubmit(event) {
     event.preventDefault();
@@ -42,26 +44,31 @@ var monthPrice = $('#monthly-plan');
 var quarterPrice = $('#quarterly-plan');
 
 
-$('#plan-btn').on('click', function(){
-    if (monthPrice.is(':checked') && quarterPrice.is(':checked')) {
-        $('table').append('<p style="color: red;" id="options">Please only select one option above.</p>');
-        $('#options').fadeOut(5000, function(){
-            $('#options').remove();
-        })
-    } else if (monthPrice.is(':checked')){
-        sessionStorage.clear();
-        sessionStorage.setItem('plan', 'month');
-        window.location = '/purchase-confirm';
-    } else if (quarterPrice.is(':checked')){
-        sessionStorage.clear();
-        sessionStorage.setItem('plan', 'quarter');
-        window.location = '/purchase-confirm';
-    } else {
-        $('table').append('<p style="color: red;" id="options">Please select a plan.</p>');
-        $('#options').fadeOut(5000, function(){
-            $('#options').remove();
-        })
-    }
+// Step One Button
+
+$('#step-one-button').on('click', function(){
+    $('.step-one').hide();
+    $('.step-two').show();
+    $('#progress-2').addClass('active');
 })
+
+$('#step-two-button').on('click', function(){
+    $('.step-two').hide();
+    $('.step-three').show();
+    $('#progress-3').addClass('active');
+})
+
+$('#submitOrder').on('click', function(){
+    $('.step-three').hide();
+    $('.step-four').show();
+    $('#progress-3').addClass('active');
+
+    $.post('/api/support', {});
+        $('#support-name').val('');
+        $('#support-email').val('');
+        $('#support-message').val('');
+        $('#support-form').append('Sent!');
+})
+
 
 })

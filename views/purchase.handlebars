@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="/css/shop.css" media="screen" title="no title" charset="utf-8">
+
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="mx-auto order-0">
         <a class="navbar-brand mx-auto" href="#">TeleMed Universal</a>
@@ -18,50 +20,316 @@
 </nav>
 
 <div class="container">
-<div id="selectPlan">
-<div class="text-center">
-    <h3>Select Your Plan</h3>
-</div>
-<div class="text-center">Little More Than $1/DAY for You and Your Family -- UNLIMITED USAGE!
-NO "PER CALL" DOCTOR FEES, COPAYS OR DEDUCTIBLES!</div>
-<div class="inner">
-<table>
-            <tr class="monthly-plan selected-plan">
-              <td>MONTHLY PLAN</td>
-              <td class="text-right" align="right">
-                <span class="custom-price">$49.00</span>
-                <span>
-                    <input type="checkbox" id="monthly-plan" name="monthly-plan" value="">
-                    <label for="monthly-plan">Select</label>
-                </span>
-              </td>
-            </tr>
-            <tr class="quarterly-plan">
-                <td><strong style="color:red;">SPECIAL BONUS OFFER: QUARTERLY PLAN!</strong><br><span>GET ONE-MONTH FREE</span><br><p>(You receive 3-Months Membership for the <br> Standard Price of 2-Months at $49/Month)</p></td>
-            <td class="text-right" align="right">
-                <span class="custom-price">$98.00</span>
-                <span>
-                    <input type="checkbox" id="quarterly-plan" name="quarterly-plan" value="">
-                    <label for="quarterly-plan">Select</label>
-                </span>
-            </td>
-            </tr>                
-</table>
-</div>
+    <div class="container checkout-table">
+        <br>
+        <div class="row">
+            <div class="col text-center">
+                <ul class="progressbar">
+                    <li id="progress-1" class="active">Tell Us About Yourself</li>
+                    <li id="progress-2">Billing Address</li>
+                    <li id="progress-3">Checkout</li>
+                    <li id="progress-4">Done!</li>
+                </ul>
+            </div>
+        </div>
 
-<div class="text-center">
-    <button id="plan-btn">Continue</button>
+        {{!-- Step 1 --}}
+
+        <div class="container step-one">
+        <div class="row">
+            <div class="col-6">
+                First Name
+            </div>
+            <div class="col-6">
+                Last Name
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <input id="enrollFirstName" name="enrollFirstName" type="text" placeholder="First Name">
+            </div>
+            <div class="col-6">
+                <input id="enrollLastName" name="enrollLastName" type="text" placeholder="Last Name">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                Date of Birth
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input id="enrollBirthday" name="enrollBirthday" type="date" placeholder="Date of Birth">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                Gender
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <select isrequired="" required="required" name="gender">
+                    <option value="" selected="">Select Gender</option>
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                Email
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input id="enrollEmail" name="enrollEmail" type="text" placeholder="Email">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                Phone
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input id="enrollPhone" name="enrollPhone" type="text" placeholder="Phone Number">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                <button id="step-one-button">Continue</button>
+            </div>
+        </div>
+    </div>
+
+
+    {{!-- Step 2 --}}
+
+    <div class="container step-two">
+        <div class="row">
+            <div class="col-6">
+                Address 1
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input id="enrollAddressOne" name="enrollAddressOne" type="text" placeholder="Address Line 1">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                Address Line 2
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input id="enrollAddressTwo" name="enrollAddressTwo" type="text" placeholder="Address Line 2">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                City
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input id="enrollCity" name="enrollCity" type="text" placeholder="City">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                State
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <select name="state" isrequired="" placeholder="State" style="display: inline-block;">
+                    <option value="">Select State</option>
+                    <option value="AL">Alabama</option>
+                    <option value="AK">Alaska</option>
+                    <option value="AZ">Arizona</option>
+                    <option value="AR">Arkansas</option>
+                    <option value="CA">California</option>
+                    <option value="CO">Colorado</option>
+                    <option value="CT">Connecticut</option>
+                    <option value="DE">Delaware</option>
+                    <option value="DC">District of Columbia</option>
+                    <option value="FL">Florida</option>
+                    <option value="GA">Georgia</option>
+                    <option value="HI">Hawaii</option>
+                    <option value="ID">Idaho</option>
+                    <option value="IL">Illinois</option>
+                    <option value="IN">Indiana</option>
+                    <option value="IA">Iowa</option>
+                    <option value="KS">Kansas</option>
+                    <option value="KY">Kentucky</option>
+                    <option value="LA">Louisiana</option>
+                    <option value="ME">Maine</option>
+                    <option value="MD">Maryland</option>
+                    <option value="MA">Massachusetts</option>
+                    <option value="MI">Michigan</option>
+                    <option value="MN">Minnesota</option>
+                    <option value="MS">Mississippi</option>
+                    <option value="MO">Missouri</option>
+                    <option value="MT">Montana</option>
+                    <option value="NE">Nebraska</option>
+                    <option value="NV">Nevada</option>
+                    <option value="NH">New Hampshire</option>
+                    <option value="NJ">New Jersey</option>
+                    <option value="NM">New Mexico</option>
+                    <option value="NY">New York</option>
+                    <option value="NC">North Carolina</option>
+                    <option value="ND">North Dakota</option>
+                    <option value="OH">Ohio</option>
+                    <option value="OK">Oklahoma</option>
+                    <option value="OR">Oregon</option>
+                    <option value="PA">Pennsylvania</option>
+                    <option value="RI">Rhode Island</option>
+                    <option value="SC">South Carolina</option>
+                    <option value="SD">South Dakota</option>
+                    <option value="TN">Tennessee</option>
+                    <option value="TX">Texas</option>
+                    <option value="UT">Utah</option>
+                    <option value="VT">Vermont</option>
+                    <option value="VA">Virginia</option>
+                    <option value="WA">Washington</option>
+                    <option value="WV">West Virginia</option>
+                    <option value="WI">Wisconsin</option>
+                    <option value="WY">Wyoming</option>
+                    <option value="AS">American Samoa</option>
+                    <option value="FM">Federated States of Micronesia</option>
+                    <option value="GU">Guam</option>
+                    <option value="MP">Northern Mariana Islands</option>
+                    <option value="PR">Puerto Rico</option>
+                    <option value="MH">Republic of Marshall Islands</option>
+                    <option value="VI">Virgin Islands of the U.S.</option>
+                    <option value="AE">Armed Forces Middle East</option>
+                    <option value="AA">Armed Forces Americas</option>
+                    <option value="AP">Armed Forces Pacific</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                Country (TeleMed Universal is only offered in the United States at this time)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input id="enrollCountry" name="enrollCountry" type="text" placeholder="Country">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                Zip Code
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input id="enrollZipCode" name="enrollZipCode" type="text" placeholder="Postal Code">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                <button id="step-two-button">Continue</button>
+            </div>
+        </div>
+        <br>
+    </div>
+
+    {{!-- Step 3 --}}
+
+    <div class="container step-three">
+        <br>
+            <div class="row">
+        <div class="col text-center">
+            <img src="images/auth-net.png">
+            <img src="images/cc.png">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col text-center">
+            <h3>Payment Details</h3>
+        </div>
+    </div>
+            <div class="row">
+                <div class="col">
+                    Card Holder's Name
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input id="cardName" name="cardName" type="text" placeholder="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    Valid Card Number
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input id="cardNumber" name="cardNumber" type="text" placeholder="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    Expiration Date
+                </div>
+                <div class="col-6">
+                    CVC
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <input id="expDate" name="expDate" type="text" placeholder="MM/YYYY">
+                </div>
+                <div class="col-6">
+                    <input id="cvc" name="cvc" type="text" placeholder="ex. 111">
+                </div>
+            </div>
+            <h3>ACCEPTANCE:</h3>
+    <h5>By submitting my Enrollment, I accept the TeleMed Universal Terms and Conditions and Privacy Policy. I understand that my plan will start today when my transaction is successful. I understand that TeleMed Universal services may require an additional validation process and until complete – I will initially be enrolled in a TeleMed Universal plan without medical diagnostic features will be activated upon my submission of medical history to the doctor network.</h4>
+    <h5>Click <a style="text-decoration: underline;" href="/terms-conditions">here</a> to view complete Terms & Conditions</h5>
+
+    <input type="checkbox" id="consent" name="consent" value="">
+    <label for="consent">I am over 18 and I have read, understand and agree to the terms of the offer above.</label>
+    </form>
+    <div class="text-center">
+	<button id="submitOrder">Submit Order</button>
+    </div>
+    <br>
+    </div>
+
+
+
+
+
 </div>
 </div>
 </div>
 
 <footer>
-
+    <div class="inner">
+        <div class="row">
+            <div class="col-4 text-center">
+                <a href="/terms-conditions">TERMS & CONDITIONS</a>
+            </div>
+            <div class="col-4 text-center">
+                <a href="/privacy">PRIVACY POLICY</a>
+            </div>
+            <div class="col-4 text-center">
+                <a href="/refund-policy">REFUND POLICY</a>
+            </div>
+        </div>
+    </div>
 </footer>
 
 
 
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/skel.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/skel.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
