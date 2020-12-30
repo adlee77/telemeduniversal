@@ -96,7 +96,7 @@
                 <button id="step-one-button">Continue</button>
             </div>
         </div>
-    </div>
+        </div>
 
 
     {{!-- Step 2 --}}
@@ -139,7 +139,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <select name="state" isrequired="" placeholder="State" style="display: inline-block;">
+                <select id="enrollState" name="state" isrequired="" placeholder="State" style="display: inline-block;">
                     <option value="">Select State</option>
                     <option value="AL">Alabama</option>
                     <option value="AK">Alaska</option>
@@ -212,7 +212,9 @@
         </div>
         <div class="row">
             <div class="col">
-                <input id="enrollCountry" name="enrollCountry" type="text" placeholder="Country">
+                <select name="Country" isrequired="" id="enrollCountry" placeholder="Country" style="display: inline-block;">
+                    <option value="USA">United States of America</option>
+                </select>
             </div>
         </div>
         <div class="row">
@@ -256,7 +258,7 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <input id="cardName" name="cardName" type="text" placeholder="">
+                    <input id="cardName" name="cardName" type="text" placeholder="Card Name">
                 </div>
             </div>
             <div class="row">
@@ -266,7 +268,7 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <input id="cardNumber" name="cardNumber" type="text" placeholder="">
+                    <input id="cardNumber" name="cardNumber" type="text" placeholder="XXXX-XXXX-XXXX-XXXX">
                 </div>
             </div>
             <div class="row">
@@ -296,6 +298,7 @@
 	<button id="submitOrder">Submit Order</button>
     </div>
     <br>
+    <p>Please only use the continue and back buttons.<br>Do not refresh window or press back during enrollment or you will have to start over.</p>
     </div>
 
 

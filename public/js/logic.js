@@ -1,8 +1,8 @@
 $(document).ready(function() {
 
 $('.alert').hide();
-$('.step-two').hide();
-$('.step-three').hide();
+// $('.step-two').hide();
+// $('.step-three').hide();
 
 $("#support-form").on("submit", function handleFormSubmit(event) {
     event.preventDefault();
@@ -46,15 +46,12 @@ var quarterPrice = $('#quarterly-plan');
 
 // Step One Button
 
-var eFName = $('#enrollFirstName').val().trim();
-var eLName = $('#enrollLastName').val().trim();
-
 $('#step-one-button').on('click', function(){
     var eFName = $('#enrollFirstName').val().trim();
     var eLName = $('#enrollLastName').val().trim();
 
     if ($('#enrollPhone').val().trim() == '' && $('#enrollEmail').val().trim() == '' && $('#eGender').val().trim() == '' && $('#enrollBirthday').val().trim() == '' && eLName == '' && eFName == '') {
-        alert("Please Fill out all Fields");
+        alert("Please Fill out All Fields");
     }
 
     // Keep These. We may use these for alerts eventually
@@ -109,23 +106,65 @@ $('#step-one-button').on('click', function(){
 // Step Two Button
 
 $('#step-two-button').on('click', function(){
+    
+    var eAddressOne = $('#enrollAddressOne').val().trim();
+    var eAddressTwo = $('#enrollAddressTwo').val().trim();
+    var eCity = $('#enrollCity').val().trim();
+    var eState = $('#enrollState').val().trim();
+    var eCountry = $('#enrollCountry').val().trim();
+    var eZipCode = $('#enrollZipCode').val().trim();
+
+    if (eAddressOne == '' || eCity == '' || eState == '' || eCountry == '' || eZipCode == '') {
+        alert("Please Fill out All Fields");
+    };
+    
+    if (eAddressOne != '' && eAddressOne != '' && eCity != '' && eState != '' && eCountry != '' && eZipCode != '') {
     $('.step-two').hide();
     $('.step-three').show();
     $('#progress-3').addClass('active');
+    };
+
 })
 
 // Step Three Button
 
 $('#submitOrder').on('click', function(){
+
+    var cardName = $('#cardName').val().trim();
+    var cardNumber = $('#cardNumber').val().trim();
+    var expDate = $('#expDate').val().trim();
+    var cvc = $('#cvc').val().trim();
+    var ageCheck = $('#consent');
+
+    if (cardName == '' || cardNumber == '' || expDate == '' || cvc == '' || ageCheck == '') {
+        alert("Please Fill out All Fields");
+    }
+    if (!ageCheck.is(':checked')) {
+        alert("Please Check the Consent Box")
+    }
+
+    if (cardName != '' && cardNumber != '' && expDate != '' && cvc != '' && ageCheck.is(':checked')) {
     $('.step-three').hide();
     $('.step-four').show();
     $('#progress-3').addClass('active');
+
+    console.log($('#enrollFirstName').val().trim(), $('#enrollLastName').val().trim(), $('#enrollPhone').val().trim(), $('#enrollEmail').val().trim(), $('#eGender').val().trim(), $('#enrollBirthday').val().trim(), $('#enrollAddressOne').val().trim(),
+    $('#enrollAddressTwo').val().trim(),
+    $('#enrollCity').val().trim(),
+    $('#enrollState').val().trim(),
+    $('#enrollCountry').val().trim(),
+    $('#enrollZipCode').val().trim(),
+    $('#cardName').val().trim(),
+    $('#cardNumber').val().trim(),
+    $('#expDate').val().trim(),
+    $('#cvc').val().trim())
 
     $.post('/api/support', {});
         $('#support-name').val('');
         $('#support-email').val('');
         $('#support-message').val('');
         $('#support-form').append('Sent!');
+    }
 })
 
 
