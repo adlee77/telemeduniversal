@@ -9,11 +9,6 @@ module.exports = function(app) {
         res.render('purchase')
     })
 
-    app.get('/purchase-confirm', function(req, res) {
-        console.log('test')
-        res.render('purchase-confirmation')
-    })
-
     app.get('/privacy', function(req, res) {
         res.render('privacy')
     })
@@ -26,8 +21,7 @@ module.exports = function(app) {
         res.render('terms-conditions')
     })
 
-    app.post('/purchase-confirm', function(req, res) {
-        console.log('test')
-        res.render('purchase-confirmation', req.body)
+    app.get('/sign-up', function(req, res) {
+        res.render('sign-up')
     })
 }
