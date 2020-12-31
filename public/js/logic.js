@@ -108,7 +108,6 @@ $('#step-one-button').on('click', function(){
 $('#step-two-button').on('click', function(){
     
     var eAddressOne = $('#enrollAddressOne').val().trim();
-    var eAddressTwo = $('#enrollAddressTwo').val().trim();
     var eCity = $('#enrollCity').val().trim();
     var eState = $('#enrollState').val().trim();
     var eCountry = $('#enrollCountry').val().trim();
@@ -132,18 +131,19 @@ $('#submitOrder').on('click', function(){
 
     var cardName = $('#cardName').val().trim();
     var cardNumber = $('#cardNumber').val().trim();
-    var expDate = $('#expDate').val().trim();
+    var expMonth = $('#expMonth').val().trim();
+    var expYear = $('#expYear').val().trim();
     var cvc = $('#cvc').val().trim();
     var ageCheck = $('#consent');
 
-    if (cardName == '' || cardNumber == '' || expDate == '' || cvc == '' || ageCheck == '') {
+    if (cardName == '' || cardNumber == '' || expMonth == '' || expYear == '' || cvc == '' || ageCheck == '') {
         alert("Please Fill out All Fields");
     }
     if (!ageCheck.is(':checked')) {
         alert("Please Check the Consent Box")
     }
 
-    if (cardName != '' && cardNumber != '' && expDate != '' && cvc != '' && ageCheck.is(':checked')) {
+    if (cardName != '' && cardNumber != '' && expMonth != '' && expYear != '' && cvc != '' && ageCheck.is(':checked')) {
     $('.step-three').hide();
     $('.step-four').show();
     $('#progress-3').addClass('active');
@@ -156,15 +156,37 @@ $('#submitOrder').on('click', function(){
     $('#enrollZipCode').val().trim(),
     $('#cardName').val().trim(),
     $('#cardNumber').val().trim(),
-    $('#expDate').val().trim(),
+    $('#expMonth').val().trim(),
     $('#cvc').val().trim())
 
-    $.post('/api/support', {});
-        $('#support-name').val('');
-        $('#support-email').val('');
-        $('#support-message').val('');
-        $('#support-form').append('Sent!');
+    var apiFirstName = $('#enrollFirstName').val().trim();
+    var apiLastName = $('#enrollLastName').val().trim();
+    var apiAddressOne = $('#enrollAddressOne').val().trim();
+    var apiPostalCode = $('#enrollZipCode').val().trim();
+    var apiCity = $('#enrollCity').val().trim();
+    var apiState = $('#enrollCity').val().trim();
+    var apiEmail = $('#enrollEmail').val().trim();
+    var apiPhone = $('#enrollPhone').val().trim();
+    var apiCardNumber = $('#cardNumber').val().trim();
+    var apiCardExpMonth = $('#expMonth').val().trim();
+    var apiCardExpYear = $('#expYear').val().trim();
+    var apiCardCVC = $('#cvc').val().trim();
+    
+
+    var settings = {
+        "url": `https://api.konnektive.com/order/import/?loginId=TELmedu111&password=TELEmed1&firstName=${apiFirstName}&lastName=${apiLastName}&address1=${apiAddressOne}&address2=Apt.+1120&postalCode=${apiPostalCode}&city=${apiCity}&state=${apiState}&country=US&emailAddress=${apiEmail}&phoneNumber=${apiPhone}&shipFirstName=${apiFirstName}&shipLastName=${apiLastName}&shipAddress1=${apiAddressOne}&shipPostalCode=${apiPostalCode}&shipCity=${apiCity}&shipState=${apiState}&shipCountry=US&paySource=CREDITCARD&cardNumber=${apiCardNumber}&cardMonth=${apiCardExpMonth}&cardYear=${apiCardExpYear}&cardSecurityCode=${apiCardCVC}&campaignId=175&product1_id=705`,
+        "method": "POST",
+        "timeout": 0,
+      };
+      
+      $.ajax(settings).done(function (response) {
+        console.log(response);
+      });
+
     }
+
+
+    
 })
 
 
