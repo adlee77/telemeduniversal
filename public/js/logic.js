@@ -148,6 +148,7 @@ $('#submitOrder').on('click', function(){
     $('.step-three').hide();
     $('.step-four').show();
     $('#progress-3').addClass('active');
+    $('#progress-4').addClass('active');
 
     console.log($('#enrollFirstName').val().trim(), $('#enrollLastName').val().trim(), $('#enrollPhone').val().trim(), $('#enrollEmail').val().trim(), $('#eGender').val().trim(), $('#enrollBirthday').val().trim(), $('#enrollAddressOne').val().trim(),
     $('#enrollAddressTwo').val().trim(),
