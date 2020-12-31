@@ -3,6 +3,7 @@ $(document).ready(function() {
 $('.alert').hide();
 $('.step-two').hide();
 $('.step-three').hide();
+$('.step-four').hide();
 
 $("#support-form").on("submit", function handleFormSubmit(event) {
     event.preventDefault();
