@@ -58,3 +58,9 @@
     height: 48px;
     width: 1110px;
 }
+
+#cardError {
+    margin-top: 15px;
+    margin-bottom: -15px;
+    color: red;
+}

@@ -4,6 +4,42 @@ $('.alert').hide();
 $('.step-two').hide();
 $('.step-three').hide();
 $('.step-four').hide();
+$('#cardError').hide();
+
+$('#progress-1').on('click', function(){
+    $('.step-one').show();
+    $('.step-two').hide();
+    $('.step-three').hide();
+    $('.step-four').hide();
+})
+
+$('#progress-2').on('click', function(){
+    $('.step-one').hide();
+    $('.step-two').show();
+    $('.step-three').hide();
+    $('.step-four').hide();
+})
+
+$('#step-two-back').on('click', function(){
+    $('.step-one').show();
+    $('.step-two').hide();
+    $('.step-three').hide();
+    $('.step-four').hide();
+})
+
+$('#step-three-back').on('click', function(){
+    $('.step-one').hide();
+    $('.step-two').show();
+    $('.step-three').hide();
+    $('.step-four').hide();
+})
+
+$('#progress-3').on('click', function(){
+    $('.step-one').hide();
+    $('.step-two').hide();
+    $('.step-three').show();
+    $('.step-four').hide();
+})
 
 $("#support-form").on("submit", function handleFormSubmit(event) {
     event.preventDefault();
@@ -145,21 +181,10 @@ $('#submitOrder').on('click', function(){
     }
 
     if (cardName != '' && cardNumber != '' && expMonth != '' && expYear != '' && cvc != '' && ageCheck.is(':checked')) {
-    $('.step-three').hide();
-    $('.step-four').show();
     $('#progress-3').addClass('active');
     $('#progress-4').addClass('active');
 
-    console.log($('#enrollFirstName').val().trim(), $('#enrollLastName').val().trim(), $('#enrollPhone').val().trim(), $('#enrollEmail').val().trim(), $('#eGender').val().trim(), $('#enrollBirthday').val().trim(), $('#enrollAddressOne').val().trim(),
-    $('#enrollAddressTwo').val().trim(),
-    $('#enrollCity').val().trim(),
-    $('#enrollState').val().trim(),
-    $('#enrollCountry').val().trim(),
-    $('#enrollZipCode').val().trim(),
-    $('#cardName').val().trim(),
-    $('#cardNumber').val().trim(),
-    $('#expMonth').val().trim(),
-    $('#cvc').val().trim())
+
 
     var apiFirstName = $('#enrollFirstName').val().trim();
     var apiLastName = $('#enrollLastName').val().trim();
@@ -183,6 +208,15 @@ $('#submitOrder').on('click', function(){
       
       $.ajax(settings).done(function (response) {
         console.log(response);
+        if (response.indexOf("SUCCESS") > -1) {
+            $('.step-three').hide();
+            $('.step-four').show();
+        } else {
+            $('#cardError').show();
+            setTimeout(function(){
+            $('#cardError').hide();
+            }, 3000)
+        }
       });
 
     }
