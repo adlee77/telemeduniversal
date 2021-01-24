@@ -49,14 +49,50 @@
 
 /* THIS DEFINITELY NEEDS MEDIA QUERIES AT SOME POINT */
 
-#enrollBirthday {
+
+@media (min-width: 768px) {
+    #enrollBirthday {
+        background-color: #F7F7F7;
+        border: none;
+        border-style: solid;
+        border-width: 1px;
+        border-color: #DBDBDB;
+        height: 48px;
+        width: 630px;
+    }
+}
+@media (min-width: 992px) { 
+    #enrollBirthday {
+        background-color: #F7F7F7;
+        border: none;
+        border-style: solid;
+        border-width: 1px;
+        border-color: #DBDBDB;
+        height: 48px;
+        width: 870px;
+    }
+}
+@media (min-width: 1200px) {
+    #enrollBirthday {
+        background-color: #F7F7F7;
+        border: none;
+        border-style: solid;
+        border-width: 1px;
+        border-color: #DBDBDB;
+        height: 48px;
+        width: 1050px;
+    }
+}
+.discount {
     background-color: #F7F7F7;
-    border: none;
     border-style: solid;
     border-width: 1px;
     border-color: #DBDBDB;
-    height: 48px;
-    width: 1110px;
+}
+
+#discount-btn {
+    margin-left: 1em;
+    height: 30px;
 }
 
 #cardError {

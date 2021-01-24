@@ -5,6 +5,8 @@ $('.step-two').hide();
 $('.step-three').hide();
 $('.step-four').hide();
 $('#cardError').hide();
+$('#initial-price').hide()
+$('#new-price').hide()
 
 $('#progress-1').on('click', function(){
     $('.step-one').show();
@@ -162,6 +164,19 @@ $('#step-two-button').on('click', function(){
 
 })
 
+var discountCodeApplied = false;
+// Discount Code
+
+$('#discount-btn').on('click', function(){
+    if ($('#discount-code').val() == 'myhealth') {
+        console.log('success')
+        $('#initial-price').show()
+        $('#new-price').show()
+        $('#initial-price2').hide()
+        discountCodeApplied = true;
+    }
+})
+
 // Step Three Button
 
 $('#submitOrder').on('click', function(){
@@ -185,7 +200,6 @@ $('#submitOrder').on('click', function(){
     $('#progress-4').addClass('active');
 
 
-
     var apiFirstName = $('#enrollFirstName').val().trim();
     var apiLastName = $('#enrollLastName').val().trim();
     var apiAddressOne = $('#enrollAddressOne').val().trim();
@@ -199,18 +213,27 @@ $('#submitOrder').on('click', function(){
     var apiCardExpYear = $('#expYear').val().trim();
     var apiCardCVC = $('#cvc').val().trim();
     
-
-    var settings = {
-        "url": `https://api.konnektive.com/order/import/?loginId=TELmedu111&password=TELEmed1&firstName=${apiFirstName}&lastName=${apiLastName}&address1=${apiAddressOne}&address2=Apt.+1120&postalCode=${apiPostalCode}&city=${apiCity}&state=${apiState}&country=US&emailAddress=${apiEmail}&phoneNumber=${apiPhone}&shipFirstName=${apiFirstName}&shipLastName=${apiLastName}&shipAddress1=${apiAddressOne}&shipPostalCode=${apiPostalCode}&shipCity=${apiCity}&shipState=${apiState}&shipCountry=US&paySource=CREDITCARD&cardNumber=${apiCardNumber}&cardMonth=${apiCardExpMonth}&cardYear=${apiCardExpYear}&cardSecurityCode=${apiCardCVC}&campaignId=175&product1_id=705`,
-        "method": "POST",
-        "timeout": 0,
-      };
+    if (discountCodeApplied){
+        var settings = {
+            "url": `https://api.konnektive.com/order/import/?loginId=TELmedu111&password=TELEmed1&firstName=${apiFirstName}&lastName=${apiLastName}&address1=${apiAddressOne}&address2=Apt.+1120&postalCode=${apiPostalCode}&city=${apiCity}&state=${apiState}&country=US&emailAddress=${apiEmail}&phoneNumber=${apiPhone}&shipFirstName=${apiFirstName}&shipLastName=${apiLastName}&shipAddress1=${apiAddressOne}&shipPostalCode=${apiPostalCode}&shipCity=${apiCity}&shipState=${apiState}&shipCountry=US&paySource=CREDITCARD&cardNumber=${apiCardNumber}&cardMonth=${apiCardExpMonth}&cardYear=${apiCardExpYear}&cardSecurityCode=${apiCardCVC}&campaignId=175&product1_id=707`,
+            "method": "POST",
+            "timeout": 0,
+          };
+    } else {
+        var settings = {
+            "url": `https://api.konnektive.com/order/import/?loginId=TELmedu111&password=TELEmed1&firstName=${apiFirstName}&lastName=${apiLastName}&address1=${apiAddressOne}&address2=Apt.+1120&postalCode=${apiPostalCode}&city=${apiCity}&state=${apiState}&country=US&emailAddress=${apiEmail}&phoneNumber=${apiPhone}&shipFirstName=${apiFirstName}&shipLastName=${apiLastName}&shipAddress1=${apiAddressOne}&shipPostalCode=${apiPostalCode}&shipCity=${apiCity}&shipState=${apiState}&shipCountry=US&paySource=CREDITCARD&cardNumber=${apiCardNumber}&cardMonth=${apiCardExpMonth}&cardYear=${apiCardExpYear}&cardSecurityCode=${apiCardCVC}&campaignId=175&product1_id=705`,
+            "method": "POST",
+            "timeout": 0,
+          };
+    }
+    
       
       $.ajax(settings).done(function (response) {
         console.log(response);
         if (response.indexOf("SUCCESS") > -1) {
             $('.step-three').hide();
             $('.step-four').show();
+            $('#no-refresh').hide();
         } else {
             $('#cardError').show();
             setTimeout(function(){
@@ -218,12 +241,7 @@ $('#submitOrder').on('click', function(){
             }, 3000)
         }
       });
-
     }
-
-
-    
 })
-
 
 })
