@@ -486,11 +486,25 @@ footer {
 
 	 .slide-text p {
     	font-size: 15px;
-	}
+    }
+    .navbar-nav li {
+        font-size: 12px;
+        position: relative;
+        right: 11em;
+        bottom: 8em;
+        margin: -0.4em;
+    }
 }
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
+    .navbar-nav li {
+        font-size: 12px;
+        position: relative;
+        right: 13em;
+        bottom: 8em;
+        margin: -0.4em;
+    }
 }
 
 /* Large devices (large desktops, 1200px and up) */
@@ -501,6 +515,15 @@ body
 {
 	font-family: 'Roboto' !important;
 	overflow-x: hidden;
+}
+
+.navbar-nav li {
+    font-size: 12px;
+        position: relative;
+        right: 13em;
+        bottom: 0em;
+        margin: -0.4em;
+
 }
 
 .main_heading {
@@ -935,4 +958,15 @@ li {
     position: relative;
     bottom: 10em;
     margin-bottom: -15em;
+}
+
+#logo {
+    height: 100px;
+    position: relative; 
+    right: 18em;
+}
+
+.navbar-right {
+    position: relative;
+    left: 15em;
 }
