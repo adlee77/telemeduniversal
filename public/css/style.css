@@ -501,9 +501,8 @@ footer {
     .navbar-nav li {
         font-size: 12px;
         position: relative;
-        right: 13em;
-        bottom: 8em;
-        margin: -0.4em;
+        top:0.5em;
+        right: 17em;
     }
 }
 
@@ -515,15 +514,6 @@ body
 {
 	font-family: 'Roboto' !important;
 	overflow-x: hidden;
-}
-
-.navbar-nav li {
-    font-size: 12px;
-        position: relative;
-        right: 13em;
-        bottom: 0em;
-        margin: -0.4em;
-
 }
 
 .main_heading {
@@ -963,7 +953,7 @@ li {
 #logo {
     height: 100px;
     position: relative; 
-    right: 18em;
+    right: 19.5em;
 }
 
 .navbar-right {
