@@ -1,7 +1,5 @@
 var express = require('express')
 var exphbs = require('express-handlebars')
-// var enforce = require('express-sslify');
-
 
 var db = require('./models')
 
